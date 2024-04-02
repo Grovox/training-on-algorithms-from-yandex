@@ -1,10 +1,11 @@
-package One.Lesson4DictionariesAndSortingByCounting;
+package algorithm.training.one.lesson.four.dictionaries.and.sorting.by.counting;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.TreeMap;
 
 public class F_Sales {
@@ -13,17 +14,19 @@ public class F_Sales {
         Map<String, TreeMap<String, Long>> database = new TreeMap<>();
         String line;
         while ((line = reader.readLine()) != null && !line.equals("")){
-            String[] lineDateBase = line.split(" ");
-            Long price = Long.parseLong(lineDateBase[2]);
-            if (database.get(lineDateBase[0]) == null){
+            StringTokenizer stringTokenizer = new StringTokenizer(line, " ");
+            String buyer = stringTokenizer.nextToken();
+            String product = stringTokenizer.nextToken();
+            Long price = Long.parseLong(stringTokenizer.nextToken());
+            if (!database.containsKey(buyer)){
                 TreeMap<String, Long> byes = new TreeMap<>();
-                byes.put(lineDateBase[1], price);
-                database.put(lineDateBase[0], byes);
+                byes.put(product, price);
+                database.put(buyer, byes);
             }else{
-                TreeMap<String, Long> byes = database.get(lineDateBase[0]);
-                if (byes.get(lineDateBase[1]) == null){
-                    byes.put(lineDateBase[1], price);
-                }else byes.put(lineDateBase[1], byes.get(lineDateBase[1]) + price);
+                TreeMap<String, Long> byes = database.get(buyer);
+                if (!byes.containsKey(product)){
+                    byes.put(product, price);
+                }else byes.put(product, byes.get(product) + price);
             }
         }
 
