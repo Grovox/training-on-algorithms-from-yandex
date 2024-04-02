@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TrainingOnAlgorithmsFromYandex.iml" filepath="$PROJECT_DIR$/TrainingOnAlgorithmsFromYandex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/training-on-algorithms-from-yandex.iml" filepath="$PROJECT_DIR$/training-on-algorithms-from-yandex.iml" />
     </modules>
   </component>
 </project>
